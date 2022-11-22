@@ -9,9 +9,9 @@ describe("Sections test", () => {
     beforeEach(() => {
         cy.visit("www.instagram.com");
         cy.get(':nth-child(1) > .x1i10hfl > ._acan').click().wait(5000)
-        cy.get(":nth-child(1) > ._aa5k > ._aa48 > ._aa4b").click().type(userInfo.userName)
-        cy.get(':nth-child(2) > ._aa5k > ._aa48 > ._aa4b').click().type(userInfo.password)
-        cy.get('._abc2 > :nth-child(3)').click()
+        cy.get(':nth-child(1) > .x1npaq5j > ._aa48 > ._aa4b').click().type(userInfo.userName)
+        cy.get(':nth-child(2) > .x1npaq5j > ._aa48 > ._aa4b').click().type(userInfo.password)
+        cy.get('._acan > ._ab8w').click()
     });
     it("Select topic - when clicked should switch the content of the clicked task and also open the accordion with the questions/sub-items in it", () => {
         const message = ["nice", "good work", "nice post", "good work"]
@@ -24,7 +24,7 @@ describe("Sections test", () => {
             cy.get(`:nth-child(4) > [style="flex-direction: column; padding-bottom: 0px; padding-top: 0px;"] > :nth-child(${nodeOne}) > :nth-child(${nodeTwo}) > a > .eLAPa > ._9AhH0`).click().wait(3000)
             cy.scrollTo("bottom")
             cy.get('[data-testid="post-comment-text-area"]').click()
-            cy.get('textarea[aria-label="Add a comment…"]').type("nice")
+            cy.get('textarea[aria-label="Add a comment…"]').type("@uae__community")
             cy.get('[data-testid="post-comment-input-button"] > ._7UhW9').click()
             cy.get('.NOTWr > .wpO6b').click()
             if(nodeTwo === 3){
