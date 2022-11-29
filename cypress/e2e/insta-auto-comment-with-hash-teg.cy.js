@@ -4,7 +4,7 @@ describe("Sections test", () => {
     const userInfo = {
         userName: "jodibom301@keshitv.com",
         password: "shivamkumawat",
-        hashTeg: "#computerscience",
+        hashTeg: "#reactjs",
     }
     beforeEach(() => {
         cy.visit("www.instagram.com");
@@ -23,8 +23,16 @@ describe("Sections test", () => {
         cy.get('._aagw').each(() => {
             cy.get(`:nth-child(3) > [style="position: relative; display: flex; flex-direction: column; padding-bottom: 0px; padding-top: 0px;"] > :nth-child(${nodeOne}) > :nth-child(${nodeTwo}) > .x1i10hfl > ._aagu > ._aagw`).click()
             cy.get('.x1i0vuye').click()
-            cy.get('.x1i0vuye').type("@comp_tech_edu {enter}").wait(2000)
-            cy.get('.x160vmok > .x1i10hfl').click()
+            cy.get("._ae2s").invoke("text").then((text) => {
+                if(text.includes("Comments on this post have been limited.")) {
+                    cy.get('.x160vmok > .x1i10hfl').click()        
+                } else {
+                    cy.get('.x1i0vuye').type("learn new things with @comp_tech_edu {enter}").wait(2000)
+                    cy.get('.x160vmok > .x1i10hfl').click()        
+                }
+            })
+            // cy.get('.x1i0vuye').type("@comp_tech_edu {enter}").wait(2000)
+            // cy.get('.x160vmok > .x1i10hfl').click()
             if(nodeTwo === 3){
                 nodeTwo = 1
                 nodeOne++   
