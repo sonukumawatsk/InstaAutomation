@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 20000,
   // chromeWebSecurity: false,
   e2e: {
     setupNodeEvents(on, config) {
